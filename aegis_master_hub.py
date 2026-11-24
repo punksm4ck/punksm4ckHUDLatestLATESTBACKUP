@@ -688,7 +688,7 @@ INTERPRETER_OVERRIDES = {
     "~/Projects/mac-gui-suite/Osiris-GUI-Suite/tubemaster_pro.py": _BREW_PY,  # TubeMaster Pro Elite (PyQt6)
     "~/Projects/mac-gui-suite/swiss-army-knife/swiss_army_knife.py": _BREW_PY,  # Swiss Army Knife (tkinter)
     # Per-project venvs (<project>/.venv, gitignored), pinned deps installed 2026-11-19.
-    "~/Projects/mac-gui-suite/aegis-fire-map/aegis_fire_map.py": "~/Projects/mac-gui-suite/aegis-fire-map/.venv/bin/python",
+    "~/Projects/mac-gui-suite/aegis-fire-map/aegis_fire_map.py": _BREW_PY,
     "~/Projects/mac-gui-suite/css-server-browser2/css_server_browser2.py": "~/Projects/mac-gui-suite/css-server-browser2/.venv/bin/python",
     "~/Projects/mac-gui-suite/github-tool-auto-sync/sovereign_nexus_apex-PUBLIC.py": "~/Projects/mac-gui-suite/github-tool-auto-sync/.venv/bin/python",
     "~/Projects/mac-gui-suite/network-guardian-gui/network_guardian_gui.py": "~/Projects/mac-gui-suite/network-guardian-gui/.venv/bin/python",
