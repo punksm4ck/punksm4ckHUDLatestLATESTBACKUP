@@ -277,6 +277,10 @@ MASTER_REGISTRY = [
     ("Ai Content Detector Sentinel Diag Suite", ["~/Projects/mac-gui-suite/AegisHUDLatestLATESTBACKUP/launchers/diag_suite_sentinel_live.sh"]),
     # Restored (dropped by c95ef8e). Borderless 45 px always-on-top bar; quit by PID.
     ("Substrate OS Overlay (variant)", ["~/Projects/mac-gui-suite/Aegis-Contextual-HUD/scripts/substrate_os_overlay.py"]),
+    # Added 2026-11-25: Ghost Eye is a terminal menu tool (input() prompts), so the tile runs a
+    # wrapper that opens it in Terminal.app on ghost_eye/.venv. Its folder is in _skip_dirs so
+    # auto-discovery doesn't add the bare script back as a second tile.
+    ("Ghost Eye", ["~/Projects/mac-gui-suite/AegisHUDLatestLATESTBACKUP/launchers/ghost_eye_terminal.sh"]),
     ("ai-content-detector-sentinel", ["~/Projects/mac-gui-suite/ai-content-detector-sentinel/ai_sentinel.py"]),
     ("ai-limit-tracker", ["~/Projects/mac-gui-suite/ai-limit-tracker/gui.py"]),
     ("ai_sentinel_local_engine", ["~/Projects/mac-gui-suite/ai_sentinel_local_engine/ai_sentinel_local_engine.py"]),
@@ -538,7 +542,9 @@ _skip_dirs = {"AegisHUD-macOS",  # the HUD itself
               "hud-diag", "ai_app", "app",
               # Chromebook RGB controller (folder is rgb-controller; old entry said cb-rgb-controller) and
               # punksm4ck-tv's epg_build.py (CLI guide builder). Hidden 2026-11-25.
-              "rgb-controller", "punksm4ck-tv"}
+              "rgb-controller", "punksm4ck-tv",
+              # Tiled via launchers/ghost_eye_terminal.sh (terminal app). 2026-11-25.
+              "ghost_eye"}
 _auto = []
 if os.path.isdir(_MAC_ROOT):
     for _d in sorted(os.listdir(_MAC_ROOT)):
