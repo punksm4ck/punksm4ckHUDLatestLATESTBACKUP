@@ -23,21 +23,17 @@ MASTER_REGISTRY = [
     ("Punksm4ck Sentinel Apex Nexus", ["~/Scripts/build_aegis_v23_nexus.py", "~/Scripts/build_aegis_v22_omnilink.py", "~/Scripts/build_aegis_v21_apex.py"]),
     ("Punksm4ck Sentinel C2 Arrays", ["~/Scripts/build_aegis_zenith.py", "~/Scripts/build_aegis_v20_globus.py", "~/Scripts/build_aegis_v19_continental.py", "~/Scripts/build_aegis_v18_sovereign_ii.py"]),
     ("Punksm4ck Orchestrator", ["~/Scripts/aether_orchestrator.py"]),
-    ("Enterprise WiFi Manager", ["~/Scripts/enterprise_wifi_manager.py", "~/Scripts/wifi_tray.py"]),
     ("Mic HUD", ["~/Scripts/mic_manager.py"]),
-    ("OSIRIS Diagnostic Surgeon", ["~/Scripts/osiris_diagnostic_surgeon.py"]),
     ("OSIRIS Nuclear Command", ["~/Scripts/open_multi_agent_gui.py"]),
     ("Singularity Master", ["~/singularity_master.py"]),
     ("SSOC Command", ["~/Scripts/ssoc.py"]),
 
     # --- ORIGINAL BASELINE APPS ---
     ("Punksm4ck Singularity Suite", ["~/Scripts/aether_singularityv1.py", "~/Scripts/aether_singularity.py", "~/Scripts/AetherSuite/main.py", "~/Scripts/Osiris-GUI-Suite/aether_singularity.py"]),
-    ("AI-SPY", ["~/Scripts/ai_watcher_enterprise.py", "~/Scripts/ai_watcher_enterprise_v5.py", "~/Scripts/AegisHUDLatest/ai_watcher_enterprise_v5.py"]),
     ("AI Terminal", ["~/Scripts/AegisHUDLatest/ai_terminal.py", "~/Scripts/ai_terminal.py"]),
     # Real-project copy first (2026-11-19): this tile otherwise resolved nowhere and the app only
     # appeared as a dashboard tile running the wayland_tripwire duplicate-cluster copy.
     ("AI Water Tracker", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/ai_water_tracker.py", "~/Scripts/WaterTracker/main.py", "~/Scripts/Water-Tracker/main.py"]),
-    ("ColorNote Matrix", ["/home/tsann/.local/share/applications/colornote-osiris.desktop"]),
     # Project copy first (2026-11-19): the ~/Scripts basename fallback below resolved to the
     # Osiris-GUI-Suite copy, which has no interpreter (bare python3, no PyQt6/dotenv). Claiming
     # this path also stops auto-discovery adding it again as a second "Css Server Browser2" tile.
@@ -55,7 +51,6 @@ MASTER_REGISTRY = [
     ("ICE DRI Tracker", ["~/Projects/mac-gui-suite/ICEDetentionGUI/main.py"]),
     ("ICE Watch", ["~/Scripts/ice_watch.py", "~/Scripts/AegisHUDLatest/ice_watch.py"]),
     ("PUNKSM4CK Phantom", ["~/Scripts/aegis_phantom.py"]),
-    ("LVT Clone UI", ["~/Scripts/LVT_Clone/main.py", "~/Scripts/LVT_Clone/app.py"]),
     ("NAS Drive GUI", ["~/Scripts/Osiris-GUI-Suite/GDrive_clone_GUI/NASDriveGUI.py", "~/Scripts/NASDriveGUI/main.py"]),
     ("Network GUI", ["~/Scripts/Osiris-GUI-Suite/network_gui.py", "~/Scripts/NetworkGUI/main.py"]),
     ("Network Sentry", ["~/Scripts/NetSentry/main.py", "~/Scripts/NetworkSentry/main.py"]),
@@ -63,14 +58,13 @@ MASTER_REGISTRY = [
     ("OSIRIS Matrix UI", ["~/Scripts/OsirisMatrix/main.py", "~/Scripts/Osiris-Matrix/main.py"]),
     ("OSIRIS Pipeline", ["~/Scripts/osiris_pipeline/main.py", "~/Scripts/OsirisPipeline/main.py"]),
     ("OSIRIS SmartThings Tile", ["~/Scripts/SamsungSmartThings/main.py", "~/Scripts/SmartThings/main.py"]),
-    ("Price Sniper", ["~/Scripts/PriceSniper/main.py", "~/Scripts/Osiris-GUI-Suite/price_sniper.py", "~/Scripts/PriceHunter/main.py"]),
     ("Prop 22 Calculator", ["~/Scripts/prop22_calculator.py", "~/Scripts/Prop22/main.py", "~/Scripts/Prop-22/main.py"]),
     # Hidden 2026-11-19: PunksTactical/main.py has never parsed (15 CSS #id selector lines
     # stripped from its HTML f-string, in every commit). Also blocked in _skip_dirs and
     # _DASH_SKIP_PARTS below so auto-discovery / the dashboard can't re-add it.
     # ("Punks Tactical", ["~/Scripts/PunksTactical/main.py", "~/Scripts/PunksTactical/app.py"]),
     ("PyFixer Utility", ["~/Scripts/Osiris-GUI-Suite/pyfixer.py", "~/Scripts/PyFixer/main.py"]),
-    ("Restaurant Roulette", ["~/Scripts/food_roulette.py", "~/Scripts/Restaurant-Roulette/main.py"]),
+    ("Restaurant Roulette", ["~/Projects/mac-gui-suite/PriceHunter/food_roulette.py"]),
     ("Safe Backend Processor", ["~/Scripts/safe_backend_processor.py"]),
     ("Scrape GUI", ["~/Scripts/scrape_gui.py", "~/Scripts/Osiris-GUI-Suite/scrape_gui.py", "~/Scripts/ScrapeGUI/main.py"]),
     ("Sonic Forge", ["~/Scripts/sonic-forge/main.py", "~/Scripts/SonicForge/main.py"]),
@@ -79,7 +73,7 @@ MASTER_REGISTRY = [
     ("The Tile App", ["~/Scripts/TheTileApp/main.py", "~/Scripts/TileApp/main.py"]),
     # Hidden 2026-11-21: every candidate here is missing, so the basename shim resolved this tile to
     # mac-gui-suite/Osiris-GUI-Suite/tubemaster_pro.py -- a 209-line legacy Linux build (hardcoded
-    # /home/tsann and /mnt/NAS paths, shell=True, `sudo chmod`), not the real app. The real TubeMaster
+    # legacy-home and /mnt/NAS paths, shell=True, `sudo chmod`), not the real app. The real TubeMaster
     # (tubemaster-pro/tubemaster_pro.py) is still auto-tiled as "Tubemaster Pro". Also blocked in
     # _DASH_SKIP_PARTS below so the dashboard sync can't re-add it. The file itself is kept.
     # ("TubeMaster Pro Elite", ["~/Scripts/tubemaster_pro.py", "~/Scripts/Osiris-GUI-Suite/tubemaster_pro.py", "~/Scripts/TubeMaster/main.py"]),
@@ -104,7 +98,10 @@ MASTER_REGISTRY = [
     # ~/Scripts/aegis/openwebui/build-aegis-native.sh). The server itself is run
     # by the com.aegis.openwebui LaunchAgent; this tile only opens the window.
     # Launched by its own path: /Applications/AEGIS.app is a different app.
-    ("PUNKSM4CK Open WebUI", ["~/Applications/AEGIS.app"]),
+    ("PUNKSM4CK Open WebUI", ["~/Applications/PUNKSM4CK.app"]),
+    # Re-pointed 2026-11-25: the native com.aegis.webui window was renamed ~/Applications/AEGIS.app ->
+    # ~/Applications/PUNKSM4CK.app. /Applications/AEGIS.app is the PyInstaller AEGIS Chat (own tile below).
+    ("PUNKSM4CK Chat (PyInstaller)", ["/Applications/AEGIS.app"]),
     # NOT SwiftUI: a PyInstaller bundle of the AEGIS Chat app (bundle id
     # com.punksm4ck.aegis, embedded Python; built from ~/.aegis_chat).
     # Renamed from "AEGIS Web Shell" 2026-11-19.
@@ -113,6 +110,9 @@ MASTER_REGISTRY = [
     # not replacing them):
     ("PUNKSM4CK TV-OPS", ["~/Desktop/AEGIS TV-OPS.app"]),
     ("AI Limit Tracker (App)", ["~/Applications/AILimitTracker.app"]),
+    # Restored 2026-11-25 (dropped by c95ef8e). Chat (App) is the renamed AEGIS Chat.app bundle.
+    ("PUNKSM4CK Chat (App)", ["~/Applications/PUNKSM4CK Chat.app"]),
+    ("OpenTorrent (App)", ["~/Desktop/OpenTorrent.app"]),
 
     # --- Added by Claude (2026-11-17) -----------------------------------
     # `scribe` is a pip-installed console script (scribe ui -> PyQt6 notepad
@@ -166,8 +166,8 @@ MASTER_REGISTRY = [
     ("PUNKSM4CK Constellation", ["~/Scripts/constellation.py"]),
     ("PUNKSM4CK Synapse", ["~/Scripts/aegis_synapse.py"]),
     ("PUNKSM4CK Fire Map", ["~/Projects/mac-gui-suite/aegis-fire-map/aegis_fire_map.py", "~/Projects/mac-gui-suite/firemap/aegis_fire_map.py"]),
-    ("AI Facial Rec", ["~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/ai_facial_rec/gui.py", "~/Projects/mac-gui-suite/watcher_diagnostics/gui_apps/ai_facial_rec/gui.py", "~/Projects/mac-gui-suite/tray_fixer/gui_apps/ai_facial_rec/gui.py"]),
     ("APK Architect", ["~/Projects/mac-gui-suite/osiris-apk-architect/osiris_apk_architect.py", "~/Projects/mac-gui-suite/OSIRIS-APK-Architect/OSIRIS_APK_Architect.py"]),
+    ("APK Architect (apk-architect)", ["~/Projects/mac-gui-suite/apk-architect/apk_architect.py"]),
     ("Chatbot", ["~/Projects/mac-gui-suite/chatbot/chatbot.py"]),
     ("Claude Usage Monitor", ["~/Projects/mac-gui-suite/claudeusage/ClaudeUsage.py"]),
     ("Clean Room GUI", ["~/Projects/mac-gui-suite/cleanroomgui/CleanRoomGUI.py", "~/Projects/mac-gui-suite/clean-room/CleanRoomGUI.py", "~/Projects/mac-gui-suite/xenn-master-suite/CleanRoomGUI.py"]),
@@ -177,30 +177,27 @@ MASTER_REGISTRY = [
     ("Epstein Pipeline", ["~/Projects/mac-gui-suite/epstein-network-tracker/epstein_network_tracker.py"]),
     ("Gemini Usage Monitor", ["~/Projects/mac-gui-suite/geminiusage/GeminiUsage.py"]),
     ("GitHub Nexus Auditor", ["~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/github_nexus_auditor.py", "~/Projects/mac-gui-suite/watcher_diagnostics/gui_apps/github_nexus_auditor.py", "~/Projects/mac-gui-suite/tray_fixer/gui_apps/github_nexus_auditor.py"]),
-    ("Keep Awake", ["~/Projects/mac-gui-suite/keep-awake/keep_awake.py"]),
     ("Master GUI Launcher", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/master_gui_launcher.py", "~/Projects/mac-gui-suite/wayland_tripwire/scripts/master_gui_launcher.py", "~/Projects/mac-gui-suite/Aegis-Contextual-HUD/scripts/master_gui_launcher.py"]),
     ("Metrics Widget", ["~/Projects/mac-gui-suite/metrics-widget/metrics_widget.py"]),
     ("NetSec Deployer", ["~/Projects/mac-gui-suite/netsecdeployer/NetSecDeployer.py", "~/Projects/mac-gui-suite/netsec/NetSecDeployer.py", "~/Projects/mac-gui-suite/xenn-master-suite/NetSecDeployer.py"]),
     ("Network Doctor", ["~/Projects/mac-gui-suite/network-doctor/network_doctor.py"]),
     ("Network Scanner", ["~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/network_scanner.py", "~/Projects/mac-gui-suite/watcher_diagnostics/gui_apps/network_scanner.py", "~/Projects/mac-gui-suite/tray_fixer/gui_apps/network_scanner.py"]),
-    ("Nexus Patcher", ["~/Projects/mac-gui-suite/nexus-patcher/nexus_patcher.py"]),
     ("OSIRIS Master", ["~/Projects/mac-gui-suite/osiris-master/osiris_master.py"]),
     ("OSIRIS Patch", ["~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/osiris_patch.py", "~/Projects/mac-gui-suite/watcher_diagnostics/gui_apps/osiris_patch.py", "~/Projects/mac-gui-suite/tray_fixer/gui_apps/osiris_patch.py"]),
-    ("Paywall Remover", ["~/Projects/mac-gui-suite/paywall-gui6/paywall_gui6.py", "~/Projects/mac-gui-suite/paywall-remover-gui/main.py"]),
+    ("Paywall Remover", ["~/Projects/mac-gui-suite/paywall-remover-gui/main.py", "~/Projects/mac-gui-suite/paywall-gui6/paywall_gui6.py"]),
     ("PriceHunter", ["~/Projects/mac-gui-suite/PriceHunter/main.py"]),
     ("Qwen Groq Enterprise", ["~/Projects/mac-gui-suite/qwen-groq-enterprise/qwen_groq_enterprise.py"]),
     ("Steam Recover GUI", ["~/Projects/mac-gui-suite/steam-recover-gui/steam_recover_gui.py"]),
-    ("Storage GUI", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/storage_gui.py", "~/Projects/mac-gui-suite/wayland_tripwire/scripts/storage_gui.py", "~/Projects/mac-gui-suite/wayland_tripwire/applications/storage_gui.py"]),
-    ("Swiss Army Knife", ["~/Projects/mac-gui-suite/wayland_tripwire/scripts/swiss_army_knife.py", "~/Projects/mac-gui-suite/wayland_tripwire/applications/swiss_army_knife.py", "~/Projects/mac-gui-suite/Aegis-Contextual-HUD/scripts/swiss_army_knife.py"]),
+    ("Storage GUI", ["~/Projects/mac-gui-suite/storage-gui/storage_gui.py", "~/Projects/mac-gui-suite/Osiris-GUI-Suite/storage_gui.py"]),
+    ("Swiss Army Knife", ["~/Projects/mac-gui-suite/swiss-army-knife/swiss_army_knife.py"]),
     ("Sync VPN Dashboard", ["~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/sync_vpn_dashboard.py", "~/Projects/mac-gui-suite/watcher_diagnostics/gui_apps/sync_vpn_dashboard.py", "~/Projects/mac-gui-suite/tray_fixer/gui_apps/sync_vpn_dashboard.py"]),
-    ("TubeMaster Pro", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/tubemaster_pro.py", "~/Projects/mac-gui-suite/tubemaster-pro/tubemaster_pro.py", "~/Projects/mac-gui-suite/wayland_tripwire/scripts/tubemaster_pro.py"]),
+    ("TubeMaster Pro", ["~/Projects/mac-gui-suite/tubemaster-pro/tubemaster_pro.py"]),
     ("Ubuntu Process Monitor", ["~/Projects/mac-gui-suite/ubuntu-process-monitor-gui/ubuntu_process_monitor_gui.py"]),
+    ("Ubuntu Process Monitor (lite)", ["~/Projects/mac-gui-suite/ubuntu-process-monitor/ubuntu_process_monitor.py"]),
     ("Water Usage Tracker", ["~/Projects/mac-gui-suite/water-usage-tracker/main.py"]),
-    ("Windscribe Tray", ["~/Projects/mac-gui-suite/windscribe-tray/windscribe_tray.py"]),
     ("XENN Master Suite", ["~/Projects/mac-gui-suite/xenn-master-suite/xenn_master_suite.py"]),
     ("punksm4ck-chronos", ["~/Projects/mac-gui-suite/aegis-chronos/aegis_chronos.py"]),
     ("PUNKSM4CK-Cloud-Bridge", ["~/Projects/mac-gui-suite/AEGIS-Cloud-Bridge/aegis_orchestrator.py"]),
-    ("punksm4ck-crash-fixer-v3", ["~/Projects/mac-gui-suite/aegis-crash-fixer-v3/aegis_crash_fixer_v3.py"]),
     ("punksm4ck-fire-tracker", ["~/Projects/mac-gui-suite/aegis-fire-tracker/aegis_fire_tracker.py"]),
     ("punksm4ck-flow-runner", ["~/Projects/mac-gui-suite/aegis-flow-runner/aegis_flow_runner.py"]),
     ("punksm4ck-funnelcraft", ["~/Projects/mac-gui-suite/aegis-funnelcraft/main.py"]),
@@ -211,80 +208,50 @@ MASTER_REGISTRY = [
     ("punksm4ck-sentinel-cx", ["~/Projects/mac-gui-suite/aegis-sentinel-cx/aegis_sentinel_cx.py"]),
     ("punksm4ck-tv-suite", ["~/Projects/mac-gui-suite/aegis-tv-suite/aegis_tv_suite.py"]),
     ("punksm4ck-warp", ["~/Projects/mac-gui-suite/aegis-warp/aegis_warp.py"]),
-    ("Punksm4ckOvermind", ["~/Projects/mac-gui-suite/AegisOvermind/omega_healer_and_auditor.py"]),
-    ("punksm4ck-singularityv1", ["~/Projects/mac-gui-suite/aether-singularityv1/aether_singularityv1.py"]),
     ("ai-watcher-enterprise", ["~/Projects/mac-gui-suite/ai-watcher-enterprise/ai_watcher_enterprise.py"]),
-    ("ai_app", ["~/Projects/mac-gui-suite/ai_app/chat_sidebar.py"]),
-    ("ai_bridge", ["~/Projects/mac-gui-suite/wayland_tripwire/modules/ai_bridge.py"]),
-    ("api_key_manager", ["~/Projects/mac-gui-suite/wayland_tripwire/scripts/DatacenterTracker/app/api_key_manager.py"]),
     ("backlink-manager-pro", ["~/Projects/mac-gui-suite/backlink-manager-pro/BacklinkManagerPro.py"]),
     ("barrier-wizard-pro", ["~/Projects/mac-gui-suite/barrier-wizard-pro/barrier_wizard_pro.py"]),
     ("Bingebuster", ["~/Desktop/Bingebuster.app"]),
-    ("cb-rgb-controller", ["~/Projects/mac-gui-suite/rgb-controller/RGB_controller.py"]),
     ("chatbot-v6", ["~/Projects/mac-gui-suite/chatbot-v6/chatbot_v6.py"]),
     ("Chrome Remote Desktop", ["~/Applications/Chrome Apps.localized/Chrome Remote Desktop.app"]),
     ("Claude", ["~/Applications/Chrome Apps.localized/Claude.app"]),
     ("Claude Code URL Handler", ["~/Applications/Claude Code URL Handler.app"]),
-    ("clipboard_vault", ["~/Projects/mac-gui-suite/wayland_tripwire/modules/clipboard_vault.py"]),
     ("ColorNoteApp", ["~/Projects/ColorNoteApp/color_note_app.py"]),
     ("ColorNoteOSIRIS", ["~/Projects/ColorNoteOSIRIS/colornote_osiris_mac.py"]),
     ("Counter-Strike Source", ["~/Applications/Counter-Strike Source.app"]),
-    ("CustomTkinter", ["~/Projects/mac-gui-suite/CustomTkinter/test/unit_tests/test_ctk_button.py"]),
     ("Cyberpunk 2077", ["~/Applications/Cyberpunk 2077.app"]),
     ("dealfinder", ["~/Projects/mac-gui-suite/dealfinder/dealfinder.py"]),
     ("Facebook", ["~/Applications/Chrome Apps.localized/Facebook.app"]),
     ("fiberfinder", ["~/Projects/mac-gui-suite/fiberfinder/fiber_finder.py"]),
     ("food-roulette", ["~/Projects/mac-gui-suite/food-roulette/food_roulette.py"]),
     ("github-tool-auto-sync", ["~/Projects/mac-gui-suite/github-tool-auto-sync/sovereign_nexus_apex-PUBLIC.py"]),
-    ("github_repo", ["~/Scripts/aegis_chat.py"]),
+    ("PUNKSM4CK Chat (script)", ["~/Scripts/aegis_chat.py"]),
     ("Google Gemini", ["~/Applications/Chrome Apps.localized/Google Gemini.app"]),
     ("grid-walkerv2", ["~/Projects/mac-gui-suite/grid-walkerv2/Grid_Walkerv2.py"]),
     ("grocery-matrix", ["~/Projects/mac-gui-suite/grocery-matrix/grocery_matrix.py"]),
-    ("hud-diag", ["~/Projects/mac-gui-suite/hud-diag/hud_diag.py"]),
     ("ICEDetentionCenterTracker", ["~/Projects/mac-gui-suite/ICEDetentionCenterTracker/main.py"]),
-    ("job-listings-app", ["~/Projects/mac-gui-suite/job-listings-app/job_listings_app.py"]),
-    ("kivy", ["~/Projects/mac-gui-suite/kivy/setup.py"]),
-    ("m3u-formatter", ["~/Projects/mac-gui-suite/m3u-formatter/m3u_formatter.py"]),
-    ("mapview", ["~/Projects/mac-gui-suite/mapview/tests/test_downloader.py"]),
     ("master-control", ["~/Projects/mac-gui-suite/master-control/master-control.py"]),
     ("meme-sync-gui2", ["~/Projects/mac-gui-suite/meme-sync-gui2/meme_sync_gui2.py"]),
-    ("mic-manager", ["~/Projects/mac-gui-suite/mic-manager/mic_manager.py"]),
-    ("mpv", ["~/Projects/mac-gui-suite/mpv/TOOLS/stats-conv.py"]),
     ("MTV REWIND", ["~/Desktop/MTV REWIND.app"]),
     ("nas-gui", ["~/Projects/mac-gui-suite/nas-gui/nas_mirror_gui.py"]),
     ("nas-sync-v1", ["~/Projects/mac-gui-suite/nas-sync-v1/nas_sync_v1.py"]),
-    ("network_monitor", ["~/Projects/mac-gui-suite/wayland_tripwire/modules/network_monitor.py"]),
-    ("notes_overlay", ["~/Projects/mac-gui-suite/wayland_tripwire/modules/notes_overlay.py"]),
     ("omni-dashboard-portable", ["~/Projects/mac-gui-suite/omni-dashboard-portable/omni_dashboard_portable.py"]),
-    ("open-multi-agent-gui", ["~/Projects/mac-gui-suite/open-multi-agent-gui/open_multi_agent_gui.py"]),
     ("opensip-client", ["~/Projects/mac-gui-suite/opensip-client/OpenSIP_Client.py"]),
     ("OpenTorrentMagnet", ["~/Applications/OpenTorrentMagnet.app"]),
     ("Orbe \u00b7 Radio del mundo", ["~/Applications/Chrome Apps.localized/Orbe \u00b7 Radio del mundo.app"]),
     ("osiris-sync-v15", ["~/Projects/mac-gui-suite/osiris-sync-v15/osiris_sync_v15.py"]),
     ("Perplexity", ["~/Desktop/Perplexity.app"]),
-    ("Pillow", ["~/Projects/mac-gui-suite/Pillow/checks/check_wheel.py"]),
     ("punks-cable-bench", ["~/Projects/mac-gui-suite/punks-cable-bench/punks_cable_bench.py"]),
     ("punks-nexus-master", ["~/Projects/mac-gui-suite/punks-nexus-master/punks_nexus_master.py"]),
     ("punks-nexusv3", ["~/Projects/mac-gui-suite/punks-nexusv3/punks_nexusv3.py"]),
     ("punksadminconsole-enterprise", ["~/Projects/mac-gui-suite/punksadminconsole-enterprise/PUNKSAdminConsole_Enterprise.py"]),
-    ("PunksTactical", ["~/Projects/mac-gui-suite/PunksTactical/main_backup.py"]),
     ("punkstube-main-interface", ["~/Projects/mac-gui-suite/punkstube-main-interface/PunksTube_Main_Interface.py"]),
     ("punkstube-setup-walkthrough", ["~/Projects/mac-gui-suite/punkstube-setup-walkthrough/PunksTube_Setup_Walkthrough.py"]),
-    ("pyfixer", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/pyfixer.py"]),
-    ("PyQt-Fluent-Widgets", ["~/Projects/mac-gui-suite/PyQt-Fluent-Widgets/qfluentwidgets/_rc/resource.py"]),
-    ("PySimpleGUI", ["~/Projects/mac-gui-suite/PySimpleGUI/DemoPrograms/Demo_PyGame_Integration.py"]),
-    ("python-for-android", ["~/Projects/mac-gui-suite/python-for-android/testapps/testlauncherreboot_setup/sdl2.py"]),
     ("ramfinder", ["~/Projects/mac-gui-suite/ramfinder/ramfinder.py"]),
-    ("singularity-sync-v3", ["~/Projects/mac-gui-suite/singularity-noc/main.py"]),
     ("SP-Locator", ["~/Projects/mac-gui-suite/SP-Locator/sp_locator_v3.py"]),
     ("spotube-enterprise-engine", ["~/Projects/mac-gui-suite/spotube-enterprise-engine/Spotube_Enterprise_Engine.py"]),
-    ("ssoc", ["~/Projects/mac-gui-suite/ssoc/ssoc.py"]),
     ("sub-manager-gui", ["~/Projects/mac-gui-suite/sub-manager-gui/sub_manager_gui.py"]),
     ("substrate_os", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/substrate_os.py"]),
-    ("the-absolute-finale", ["~/Projects/mac-gui-suite/the-absolute-finale/the_absolute_finale.py"]),
-    ("the-final-squash", ["~/Projects/mac-gui-suite/the-final-squash/the_final_squash.py"]),
-    ("the-zenith-protocol", ["~/Projects/mac-gui-suite/the-zenith-protocol/the_zenith_protocol.py"]),
-    ("tqdm", ["~/Projects/mac-gui-suite/tqdm/tqdm/tk.py"]),
     ("varo-sentinel", ["~/Projects/mac-gui-suite/varo-sentinel/varo_sentinel.py"]),
     ("viktor-oss", ["~/Projects/mac-gui-suite/viktor-oss/setup_wizard.py"]),
     ("visitlog_gui", ["~/Scripts/visitlog_gui.py"]),
@@ -293,43 +260,30 @@ MASTER_REGISTRY = [
     ("work-ops-machinev1", ["~/Projects/mac-gui-suite/work-ops-machinev1/Work-Ops-Machinev1.py"]),
     ("xenn-engagement-auditor", ["~/Projects/mac-gui-suite/xenn-engagement-auditor/xenn_engagement_auditor.py"]),
     ("PUNKSM4CK Chat Relay", ["~/Desktop/AEGIS Chat Relay.app"]),
-    ("punksm4ck-app-discovery", ["~/Projects/mac-gui-suite/aegis-app-discovery/aegis_app_discovery.py"]),
     ("punksm4ck-inbox-zero-enterprise", ["~/Projects/mac-gui-suite/aegis-inbox-zero-enterprise/aegis_inbox_zero_enterprise.py"]),
     ("punksm4ck-v2", ["~/Projects/mac-gui-suite/aegis-v2/aegis_v2.py"]),
-    ("aula_scanner", ["~/Projects/mac-gui-suite/aula_scanner/master_hub.py"]),
-    ("crd-tray", ["~/Projects/mac-gui-suite/crd-tray/crd_tray.py"]),
-    ("facebook-tray", ["~/Projects/mac-gui-suite/facebook-tray/facebook_tray.py"]),
-    ("JobNexus-Public", ["~/Projects/mac-gui-suite/JobNexus-Public/build_nexus_public.py"]),
-    ("JohsNexus_GUI", ["~/Projects/mac-gui-suite/JohsNexus_GUI/aegis_shadow_agent.py"]),
-    ("mohuan_led_dashboard", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/mohuan_led_dashboard.py"]),
-    ("netsec-suite", ["~/Projects/mac-gui-suite/netsec-suite/app.py"]),
-    ("network_guardian_gui", ["~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/network_guardian_gui.py"]),
+    ("Mohuan LED Dashboard (Osiris)", ["~/Projects/mac-gui-suite/Osiris-GUI-Suite/mohuan_led_dashboard.py"]),
     ("omnifeed", ["~/Projects/mac-gui-suite/omnifeed/main.py"]),
     ("opentorrent", ["~/Projects/mac-gui-suite/opentorrent/OpenTorrent.py"]),
     ("osiris-unified-tracker", ["~/Projects/mac-gui-suite/osiris-unified-tracker/osiris_unified_tracker.py"]),
     ("osiristracker", ["~/Projects/mac-gui-suite/osiristracker/main.py"]),
-    ("plex-tray", ["~/Projects/mac-gui-suite/plex-tray/plex_tray.py"]),
-    ("PlexConnectRemote", ["~/Projects/mac-gui-suite/PlexConnectRemote/apply_plex_tv_relay.py"]),
-    ("PUNKS_WiFi_Tray", ["~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/PUNKS_WiFi_Tray.py"]),
-    ("punksm4ck-tv", ["~/Projects/mac-gui-suite/punksm4ck-tv/epg_build.py"]),
     ("SiderAI", ["~/Projects/mac-gui-suite/SiderAI/main.py"]),
-    ("spotify-tray", ["~/Projects/mac-gui-suite/spotify-tray/spotify_tray.py"]),
-    ("tray-doorman", ["~/Projects/mac-gui-suite/tray-doorman/tray_doorman.py"]),
     ("WifiScanner", ["~/Projects/mac-gui-suite/WifiScanner/main.py"]),
-    ("06-build-adapters", ["~/Projects/mac-gui-suite/06-build-adapters/06_build_adapters.py"]),
     ("Punksm4ck-Core", ["~/Projects/mac-gui-suite/Aegis-Core/ai_watcher_enterprise.py"]),
+    # Restored 2026-11-25 (dropped by c95ef8e): sentinel_diagnostics.py needs the "live" subcommand,
+    # so these tiles run the wrappers in this repo's launchers/.
+    ("Punksm4ck Core Sentinel Diagnostics", ["~/Projects/mac-gui-suite/AegisHUDLatestLATESTBACKUP/launchers/aegis_core_sentinel_live.sh"]),
+    ("Sentinel Diag", ["~/Projects/mac-gui-suite/AegisHUDLatestLATESTBACKUP/launchers/sentinel_diag_live.sh"]),
+    ("Ai Content Detector Sentinel Diag Suite", ["~/Projects/mac-gui-suite/AegisHUDLatestLATESTBACKUP/launchers/diag_suite_sentinel_live.sh"]),
+    # Restored (dropped by c95ef8e). Borderless 45 px always-on-top bar; quit by PID.
+    ("Substrate OS Overlay (variant)", ["~/Projects/mac-gui-suite/Aegis-Contextual-HUD/scripts/substrate_os_overlay.py"]),
     ("ai-content-detector-sentinel", ["~/Projects/mac-gui-suite/ai-content-detector-sentinel/ai_sentinel.py"]),
     ("ai-limit-tracker", ["~/Projects/mac-gui-suite/ai-limit-tracker/gui.py"]),
     ("ai_sentinel_local_engine", ["~/Projects/mac-gui-suite/ai_sentinel_local_engine/ai_sentinel_local_engine.py"]),
     ("aicontentdetector", ["~/Projects/mac-gui-suite/aicontentdetector/ai_sentinel.py"]),
-    ("app", ["~/Projects/mac-gui-suite/app/api_key_manager.py"]),
-    ("Applications", ["~/Projects/mac-gui-suite/Applications/ai_water_tracker.py"]),
-    ("apply-punksm4ck-lockfix", ["~/Projects/mac-gui-suite/apply-aegis-lockfix/apply_aegis_lockfix.py"]),
-    ("apply-punksm4ck-titan", ["~/Projects/mac-gui-suite/apply-aegis-titan/apply_aegis_titan.py"]),
     ("barrier-wizard", ["~/Projects/mac-gui-suite/barrier-wizard/barrier_wizard.py"]),
     ("claude_check", ["~/Projects/mac-gui-suite/claude_check/aegis_osiris_wizard.py"]),
     ("constellation", ["~/Projects/mac-gui-suite/constellation/constellation.py"]),
-    ("css_server_browser2", ["~/Projects/mac-gui-suite/css_server_browser2/css_server_browser.py"]),
     ("datacentertracker", ["~/Projects/mac-gui-suite/datacentertracker/main.py"]),
     ("EDM_Finder", ["~/Projects/mac-gui-suite/EDM_Finder/edm_finder.py"]),
     ("engagement-auditor", ["~/Projects/mac-gui-suite/engagement-auditor/engagement_auditor_backupv3.py"]),
@@ -341,7 +295,6 @@ MASTER_REGISTRY = [
     ("meme-sync-gui", ["~/Projects/mac-gui-suite/meme-sync-gui/meme_sync_gui.py"]),
     ("meme-sync-gui-v3.2", ["~/Projects/mac-gui-suite/meme-sync-gui-v3.2/meme_sync_gui_v3.2.py"]),
     ("meme-sync-v2", ["~/Projects/mac-gui-suite/meme-sync-v2/meme_sync_v2.py"]),
-    ("MohuanLED", ["~/Projects/mac-gui-suite/MohuanLED/main.py"]),
     ("omnifeedpro", ["~/Projects/mac-gui-suite/omnifeedpro/OmniFeedPro.py"]),
     ("omnisurgeon", ["~/Projects/mac-gui-suite/omnisurgeon/omnisurgeon.py"]),
     ("OSIRIS-Food-Roulette", ["~/Projects/mac-gui-suite/OSIRIS-Food-Roulette/main.py"]),
@@ -349,22 +302,12 @@ MASTER_REGISTRY = [
     ("punks-nexus", ["~/Projects/mac-gui-suite/punks-nexus/punks_nexus.py"]),
     ("punks-nexusv2", ["~/Projects/mac-gui-suite/punks-nexusv2/punks_nexusv2.py"]),
     ("sentinel-diagnostics-gui", ["~/Projects/mac-gui-suite/sentinel-diagnostics-gui/sentinel_diagnostics_gui.py"]),
-    ("sovereign-nexus-apex", ["~/Projects/mac-gui-suite/sovereign-nexus-apex/sovereign_nexus_apex-PUBLIC.py"]),
     ("SteamServerBrowser", ["~/Projects/mac-gui-suite/SteamServerBrowser/main.py"]),
     ("tcp-optimizer", ["~/Developer/tcp-optimizer/tcp_optimizer.py"]),
-    ("tray_fixer", ["~/Projects/mac-gui-suite/tray_fixer/master_hub.py"]),
-    ("tubedeck", ["~/Developer/tubedeck/app.py"]),
     ("tubemaster-gui", ["~/Projects/mac-gui-suite/tubemaster-gui/tubemaster_gui.py"]),
     ("ultimate-singularity-sync", ["~/Projects/mac-gui-suite/ultimate-singularity-sync/ULTIMATE_SINGULARITY_SYNC.py"]),
     ("UnifiedTracker", ["~/Projects/mac-gui-suite/UnifiedTracker/main.py"]),
-    ("visitlog-repo", ["~/Projects/visitlog-repo/app.py"]),
-    ("visitlog_full", ["~/Scripts/visitlog_full.py"]),
-    ("visitor_ident", ["~/Scripts/visitor_ident.py"]),
-    ("watcher_diagnostics", ["~/Projects/mac-gui-suite/watcher_diagnostics/master_hub.py"]),
-    ("wayland_tripwire", ["~/Projects/mac-gui-suite/wayland_tripwire/master_hub.py"]),
     ("wfh_wizard", ["~/Projects/mac-gui-suite/wfh_wizard/aegis_osiris_wizard.py"]),
-    ("wifi-airspace-scanner", ["~/Projects/mac-gui-suite/wifi-airspace-scanner/wifi_airspace_scanner.py"]),
-    ("wifi-tray", ["~/Projects/mac-gui-suite/wifi-tray/wifi_tray.py"]),
     ("work-ops-machine", ["~/Projects/mac-gui-suite/work-ops-machine/Work-Ops-Machine.py"]),
     ("work-ops-machinev2", ["~/Projects/mac-gui-suite/work-ops-machinev2/Work-Ops-Machinev2.py"]),
     ("xenn", ["~/Projects/mac-gui-suite/xenn/xenn_engagement_auditor.py"]),
@@ -372,14 +315,6 @@ MASTER_REGISTRY = [
     ("locally-uncensored", ["~/Scripts/hud_launchers/launch_locally-uncensored.sh"]),
     ("upscayl", ["~/Scripts/hud_launchers/launch_upscayl.sh"]),
     ("PUNKSM4CK_Chat", ["~/Desktop/AEGIS_Chat.app"]),
-    ("aegis-command-center", ["~/Projects/mac-gui-suite/aegis-command-center/aegis_command_center.py"]),
-    ("aegis-scribe", ["~/Scripts/aegis-scribe/scribe/ui/notepad.py"]),
-    ("aether-orchestrator", ["~/Projects/mac-gui-suite/aether-orchestrator/aether_orchestrator.py"]),
-    ("ai-content-detector-sentinel-diag-suite", ["~/Projects/mac-gui-suite/ai-content-detector-sentinel-diag-suite/sentinel_diagnostics.py"]),
-    ("chat_sidebar", ["~/Projects/mac-gui-suite/wayland_tripwire/scripts/chat_sidebar.py"]),
-    ("sentinel-diag", ["~/Projects/mac-gui-suite/sentinel-diag/sentinel_diagnostics.py"]),
-    ("substrate_os_overlay", ["~/Projects/mac-gui-suite/wayland_tripwire/scripts/substrate_os_overlay.py"]),
-    ("xenn-master-suite-patcher", ["~/Projects/mac-gui-suite/xenn-master-suite-patcher/xenn_master_suite_patcher.py"]),
 ]
 
 # --- Extra one-off apps merged in from the older fork's registry -----------
@@ -388,9 +323,7 @@ MASTER_REGISTRY = [
 # registered, or as new tiles where it isn't -- not duplicated as separate
 # tiles pointing at the same script.
 EXTRA_APPS = [
-    ("AI Datacenter Tracker", "~/Projects/mac-gui-suite/ai-datacenter-tracker/main.py"),
     ("FNV Mod Manager", "~/FNV_OSIRIS_Mod_Manager.py"),
-    ("ICE Detention Center Tracker", "~/Projects/mac-gui-suite/ICEDetentionGUI/main.py"),
     ("Mohuan LED Dashboard", "~/Scripts/MohuanLED/main.py"),
     ("NAS Drive GUI", "~/Scripts/NASDriveGUI/main.py"),
     ("OSIRIS Matrix UI", "~/Scripts/OsirisMatrix/main.py"),
@@ -550,7 +483,7 @@ _skip_dirs = {"AegisHUD-macOS",  # the HUD itself
               # CLI patchers that rewrite files under ~/Scripts on launch -- not apps;
               # hidden from the APPS menu (2026-11-19). Run them from a terminal if needed.
               "the-absolute-finale", "the-final-squash", "the-zenith-protocol",
-              # Linux-only (hardcoded /home/tsann paths, konsole, wmctrl); hidden 2026-11-19.
+              # Linux-only (hardcoded legacy-home paths, konsole, wmctrl); hidden 2026-11-19.
               "master-gui-launcher",
               "xenn-master-suite-patcher",
               # Stale copy of github-tool-auto-sync's script (still `git push --force`es the
@@ -558,10 +491,10 @@ _skip_dirs = {"AegisHUD-macOS",  # the HUD itself
               "sovereign-nexus-apex",
               # Not GUI apps (hidden 2026-11-19): 06-build-adapters is a code generator that
               # writes into app/; the two apply-aegis-* scripts are one-shot patchers that
-              # overwrite a hardcoded C:/Users/tsann/... file. Run from a terminal if needed.
+              # overwrite a hardcoded legacy-win-home/... file. Run from a terminal if needed.
               "06-build-adapters", "apply-aegis-lockfix", "apply-aegis-titan",
               # One-shot patcher with a thin PyQt6 wrapper: rewrites/restores files under a
-              # hardcoded C:/Users/tsann/.../gui_apps path. Not an app; hidden 2026-11-19.
+              # hardcoded legacy-win-home/.../gui_apps path. Not an app; hidden 2026-11-19.
               "aegis-crash-fixer-v3",
               # main.py doesn't parse (see the commented-out registry entry). Hidden 2026-11-19.
               "PunksTactical",
@@ -586,7 +519,26 @@ _skip_dirs = {"AegisHUD-macOS",  # the HUD itself
               "m3u-formatter",
               # Linux tray wrapper for /usr/bin/windscribe (wmctrl/xprop; starts the VPN client at launch). The real
               # macOS Windscribe app is installed. Hidden 2026-11-20; remove this entry to restore the tile.
-              "windscribe-tray"}
+              "windscribe-tray",
+              # Flattened copies of other projects' files, each `git init`-ed 2026-11-22 with no remote
+              # (identical or path-edited copies of Osiris-GUI-Suite / duplicate-cluster files). Hidden 2026-11-25.
+              "PUNKS_WiFi_Tray", "ai_water_tracker", "css_server_browser2", "dns_health_check",
+              "github_nexus_auditor", "github_repo", "master_gui_launcher", "mohuan_led_dashboard",
+              "network_guardian_gui", "network_gui", "network_scanner", "osiris_patch", "pyfixer",
+              "scrape_gui", "storage_gui", "substrate_os", "sync_vpn_dashboard", "system_monitor",
+              "tubemaster_pro", "visitlog_gui",
+              # Older copy of ~/Scripts/aegis_phantom.py (tiled as PUNKSM4CK Phantom). Hidden 2026-11-25.
+              "aegis_phantom",
+              # Import or rewrite the hub itself. Hidden 2026-11-25.
+              "osiris-diagnostic-surgeon", "aegis-app-discovery",
+              # Linux/Windows-only (X11, KDE kdocker, D-Bus, win32) or not GUI apps. Hidden 2026-11-25.
+              "enterprise-wifi-manager", "wifi-tray", "crd-tray", "facebook-tray", "plex-tray",
+              "spotify-tray", "tray-doorman", "keep-awake", "chromeremotedesktop-tray", "drive-tray",
+              "gemini-tray", "netsec-suite", "macless-haystack", "rustdesk", "omni-launcher-test",
+              "hud-diag", "ai_app", "app",
+              # Chromebook RGB controller (folder is rgb-controller; old entry said cb-rgb-controller) and
+              # punksm4ck-tv's epg_build.py (CLI guide builder). Hidden 2026-11-25.
+              "rgb-controller", "punksm4ck-tv"}
 _auto = []
 if os.path.isdir(_MAC_ROOT):
     for _d in sorted(os.listdir(_MAC_ROOT)):
@@ -647,11 +599,20 @@ _DASH_SKIP_PARTS = (
     "/Aegis-Core/sentinel_diagnostics.py", "/sentinel-diag/", "/ai-content-detector-sentinel-diag-suite/",
     "/sentinel-diagnostics/",   # duplicate of sentinel-diag, hidden 2026-11-19 (not -gui)
     # Duplicate-copy cluster (CLAUDE.md): its 15 dashboard tiles were stale copies -- 6 template wrappers
-    # for /home/tsann backends that don't exist here, Linux-only tools, apt installers, and copies of
+    # for legacy-home backends that don't exist here, Linux-only tools, apt installers, and copies of
     # apps that live in real projects (AI Water Tracker, PricePulse re-pointed above). 2026-11-19.
     "/wayland_tripwire/",
     "/windscribe-tray/",   # hidden 2026-11-20 (Linux tray wrapper; real macOS Windscribe app installed)
     "/Osiris-GUI-Suite/tubemaster_pro.py",   # hidden 2026-11-21 (legacy Linux TubeMaster; real one is tubemaster-pro/)
+    # Hidden 2026-11-25 (see _skip_dirs): Windows/Linux-only trays, Chromebook RGB controller copy,
+    # a code generator in ~/Downloads, Flask servers, and one tile with a code bug
+    # (aegis_tv_guide imports aegis_tv_suite.UnifiedTVApp, which doesn't exist).
+    "/chromeremotedesktop-tray/", "/drive-tray/", "/gemini-tray/", "/crd-tray/", "/facebook-tray/",
+    "/plex-tray/", "/spotify-tray/", "/tray-doorman/", "/wifi-tray/", "/enterprise-wifi-manager/",
+    "/keep-awake/", "/Osiris_RGB_Latest/", "/Downloads/make_aegis.py", "/aegis-tv-suite/aegis_tv_guide.py",
+    "/netsec-suite/", "/visitlog-repo/", "/Scripts/visitlog_full.py", "/Scripts/visitor_ident.py",
+    "/tubedeck/", "/osiris-diagnostic-surgeon/", "/aegis-app-discovery/", "/hud-diag/",
+    "/aegis-scribe/scribe/ui/notepad.py", "/AegisHUDLatest/modules/", "/rgb-controller/",
 )
 _DASH_SKIP_FILES = {"aegis_master_hub.py", "aegis_engine_macos.py", "gui_dashboard.py"}
 _DASH_GENERIC = {"main", "app", "gui", "run", "start", "launcher", "window", "ui", "index"}
@@ -718,13 +679,48 @@ INTERPRETER_OVERRIDES = {
     "~/Projects/mac-gui-suite/xenn/xenn_engagement_auditor.py": _BREW_PY,  # XENN Engagement Auditor (xenn) (PyQt6)
     # Own .venv (2026-11-19; wheels only, hash-pinned, 14-day rule, no .pth): PyQt6 6.12.0,
     # PyQt6-WebEngine 6.140.0, groq 1.7.0. Import-checked; NOT test-launched.
-    "~/Projects/mac-gui-suite/ai-datacenter-tracker/main.py": "/opt/homebrew/bin/python3",  # AI Datacenter Tracker (USA)
+    "~/Projects/mac-gui-suite/ai-datacenter-tracker/main.py": "~/Projects/mac-gui-suite/ai-datacenter-tracker/.venv/bin/python",  # AI Datacenter Tracker (USA); restored own venv 2026-11-25 (launch-tested)
     "~/Projects/mac-gui-suite/Osiris-GUI-Suite/ai_water_tracker.py": _BREW_PY,  # AI Water Tracker (tkinter, stdlib only)
     # PricePulse runs launchers/pricepulse_ui.sh, which execs Homebrew python3 itself.
     "~/Projects/github-staging/enterprisecomm/EnterpriseComm.py": _BREW_PY,  # EnterpriseComm (PyQt6, stdlib only)
     "~/Projects/mac-gui-suite/Aegis-Contextual-HUD/scripts/substrate_os_overlay.py": _BREW_PY,  # Substrate OS Overlay (variant) (tkinter; psutil from the per-user site)
     # Own venv (2026-11-21): numpy, PyQt6, psutil import-checked.
     "~/Scripts/constellation.py": "~/Scripts/.venv-constellation/bin/python",  # AEGIS Constellation (PyQt6)
+    # Added 2026-11-25; every entry below was launch-tested (window or tray came up) with this interpreter.
+    # Homebrew python (PyQt6/requests/playwright present):
+    "~/Projects/mac-gui-suite/ai_sentinel_local_engine/ai_sentinel_local_engine.py": _BREW_PY,  # AI Sentinel Local Engine
+    "~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/dns_health_check.py": _BREW_PY,  # DNS Health Check
+    "~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/github_nexus_auditor.py": _BREW_PY,  # GitHub Nexus Auditor
+    "~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/network_scanner.py": _BREW_PY,  # Network Scanner
+    "~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/osiris_patch.py": _BREW_PY,  # OSIRIS Patch
+    "~/Projects/mac-gui-suite/wayland_tripwire/gui_apps/sync_vpn_dashboard.py": _BREW_PY,  # Sync VPN Dashboard
+    "~/Projects/mac-gui-suite/ICEDetentionCenterTracker/main.py": _BREW_PY,  # ICEDetentionCenterTracker
+    "~/Projects/mac-gui-suite/PriceHunter/main.py": _BREW_PY,  # PriceHunter
+    "~/Projects/mac-gui-suite/PriceHunter/food_roulette.py": _BREW_PY,  # Restaurant Roulette
+    "~/Projects/mac-gui-suite/ubuntu-process-monitor/ubuntu_process_monitor.py": _BREW_PY,  # Ubuntu Process Monitor
+    "~/Projects/mac-gui-suite/paywall-remover-gui/main.py": _BREW_PY,  # Paywall Remover
+    # Per-project .venv (Homebrew 3.14, --system-site-packages; extra deps via uv, wheels only, --exclude-newer 2026-11-11), created 2026-11-25:
+    "~/Projects/mac-gui-suite/ai-content-detector-sentinel/ai_sentinel.py": "~/Projects/mac-gui-suite/ai-content-detector-sentinel/.venv/bin/python",  # keyring, PyQt5; tray app
+    "~/Projects/mac-gui-suite/aicontentdetector/ai_sentinel.py": "~/Projects/mac-gui-suite/aicontentdetector/.venv/bin/python",  # keyring, PyQt5; tray app
+    "~/Projects/mac-gui-suite/aicontentdetector/ai_sentinel_pro.py": "~/Projects/mac-gui-suite/aicontentdetector/.venv/bin/python",  # keyring, PyQt5, mss; tray app
+    "~/Projects/mac-gui-suite/fiberfinder/fiber_finder.py": "~/Projects/mac-gui-suite/fiberfinder/.venv/bin/python",  # tkintermapview
+    "~/Projects/mac-gui-suite/MohuanLED/main.py": "~/Projects/mac-gui-suite/MohuanLED/.venv/bin/python",  # bleak
+    "~/Projects/mac-gui-suite/omni-dashboard-portable/omni_dashboard_portable.py": "~/Projects/mac-gui-suite/omni-dashboard-portable/.venv/bin/python",  # folium, pandas
+    "~/Projects/mac-gui-suite/omnifeed/main.py": "~/Projects/mac-gui-suite/omnifeed/.venv/bin/python",  # nest_asyncio
+    "~/Projects/mac-gui-suite/omnifeedpro/OmniFeedPro.py": "~/Projects/mac-gui-suite/omnifeedpro/.venv/bin/python",  # nest_asyncio
+    "~/Projects/mac-gui-suite/opensip-client/OpenSIP_Client.py": "~/Projects/mac-gui-suite/opensip-client/.venv/bin/python",  # pyotp
+    "~/Projects/mac-gui-suite/SteamServerBrowser/main.py": "~/Projects/mac-gui-suite/SteamServerBrowser/.venv/bin/python",  # python-dotenv, python-a2s
+    "~/Projects/mac-gui-suite/SteamServerBrowser/src/main.py": "~/Projects/mac-gui-suite/SteamServerBrowser/.venv/bin/python",  # python-dotenv, python-a2s
+    "~/Projects/mac-gui-suite/SteamServerBrowser/punks_master_control_win11.py": "~/Projects/mac-gui-suite/SteamServerBrowser/.venv/bin/python",  # python-dotenv, python-a2s
+    "~/Projects/mac-gui-suite/aegis-inbox-zero-enterprise/aegis_inbox_zero_enterprise.py": "~/Projects/mac-gui-suite/aegis-inbox-zero-enterprise/.venv/bin/python",  # google-api-python-client, google-auth-oauthlib, openai
+    "~/Projects/mac-gui-suite/aegis-tv-suite/aegis_tv_suite.py": "~/Projects/mac-gui-suite/aegis-tv-suite/.venv/bin/python",  # python-vlc
+    "~/Projects/mac-gui-suite/aegis-tv-suite/aegis_tv_qt.py": "~/Projects/mac-gui-suite/aegis-tv-suite/.venv/bin/python",  # python-vlc
+    "~/Projects/mac-gui-suite/aegis-tv-suite/epg_guide.py": "~/Projects/mac-gui-suite/aegis-tv-suite/.venv/bin/python",  # python-vlc
+    "~/Projects/mac-gui-suite/aegis-tv-suite/live_tv_guide.py": "~/Projects/mac-gui-suite/aegis-tv-suite/.venv/bin/python",  # python-vlc
+    "~/Projects/mac-gui-suite/aegis-tv-suite/tv_tuner_finder.py": "~/Projects/mac-gui-suite/aegis-tv-suite/.venv/bin/python",  # python-vlc
+    "~/Projects/mac-gui-suite/qwen-groq-enterprise/qwen_groq_enterprise.py": "~/Projects/mac-gui-suite/qwen-groq-enterprise/.venv/bin/python",  # openai
+    "~/Projects/mac-gui-suite/spotube-enterprise-engine/Spotube_Enterprise_Engine.py": "~/Projects/mac-gui-suite/spotube-enterprise-engine/.venv/bin/python",  # spotipy, yt-dlp
+    # ai-watcher-enterprise/.venv: added cryptography 2026-11-25 (existing override above).
 }
 _INTERP_OVERRIDE = {_pyfor_key(k): os.path.expanduser(v) for k, v in INTERPRETER_OVERRIDES.items()}
 
